@@ -1,0 +1,15 @@
+nav{
+    display: flex;
+    justify-content: space-around;
+    background-color: cadetblue;
+    flex-wrap: wrap;
+    color: aquamarine;
+}
+
+
+.titulo-juego{
+    color: rgb(255, 0, 0);
+}
+.titulo-crear{
+    color: rgb(0, 255, 170);
+}

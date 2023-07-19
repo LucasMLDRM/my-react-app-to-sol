@@ -1,0 +1,117 @@
+1. creación de la app
+
+cree mi app con: npx create-react-app my-react-app
+
+cree una carpeta llamada api en la que instale
+
+express para el sv
+axios para consumir la api
+sequelize para administrar mi db
+pg para usar posgress
+dotenv para proteger mi info (para que sepan que variables de entorno uso)
+morgan para tener un buen log
+cors para no tener problemas con los puertos entre api y client
+
+comando: npm i express axios sequelize pg dotenv morgan cors
+
+en el package.json de la la api abajo de "main" le agruege:  "type": "module",
+para usar import express from "express"  en lugar de la forma classic
+
+instale rest para hacer requests desde .rest
+
+cree la carpeta db.js para conectar mi app con la db por medio de
+sequelize y app.js que contiene express
+
+importo mis modulos de node en mi app.js (cors y morgan)
+
+creo una carpeta para mis rutas "routes" y otra para mis modelos
+llamada "models" y otra que tendra los controladores que van a tener
+mis rutas, la peticion entra por una ruta y pasa a un controladores
+
+despues en el package.json en scripts agregue "start": "nodemon ./index" 
+
+en mi api/app.js
+creo una const que contenga la ejecucion de express
+
+const app = express();
+
+y le digo que va a utilizar el middleware Morgan (seteado en dev)
+
+app.use(morgan("dev"))
+
+despues 
+app.use(express.json()) // RECIBE UN BODY Y LO CONVIERTE A JSON
+app.use("/", routes) // MIS RUTAS LO RECIBEN COMO JSON
+
+creo mi archivo .env real y pongo la info necesaria 
+
+luego en mi db.js importo sequelize
+creo una nueva instancia new Sequelize()
+
+en index importamos dotenv para que nos funcionen nuestras variables
+DB_USER, DB_PASSWORD ETC..
+
+comentarios en index.js LEER. . .
+
+ahora trabajamos en el archivo routes/index.js
+
+ya cree mi primer ruta y controlador, la peticion entra a la app
+despues va hacia mi index(indice) y pasa por la ruta que concida con ese url
+por ejemplo "/platforms" y entra a esa ruta, platforms obtiene
+la información y la procesa con su controlador "platform.controller"
+el cual da la información ya procesada
+
+ahora pasamos a instalar las siguientes dependencias en el client
+
+npm i redux redux-thunk react-router-dom
+
+despues importamos en nuestro client/src/index.js
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+una vez importados roter y redux envolvemos nuestra app 
+para poder usar router y redux en el resto de nuestra app
+
+  <React.StrictMode>
+    <Provider store={store}>
+    <BrowserRouter>
+    <App />
+    </BrowserRouter>
+    </Provider>
+  <React.StrictMode>
+
+luego creamos nuestro store
+en client/src creamos una carpeta "redux" con un store.js adentro
+
+y lo importamos en nuestro client/src/index.js
+
+revisar store.js
+
+una vez creado nuestro store procedemos a crear el reducer
+creamos en la misma carpeta reducer.js
+
+revisar reducer.js
+
+ahora procedemos a crear en la misma carpeta nuestras actions
+
+este es el flujo de informacion de redux
+
+mi componente de react va a recibir la habilidad de despachar
+acciones por medio de useDispatch
+
+cuando interactue con este componente va a dispatchear una action
+que va a llegar al store donde esta mi reducer que dependiendo
+lo que indique esa action va a modificar mi estado
+una vez modificado el estado se actualiza mi componente de React
+
+con useSelector() podemos traer un estado del store para nuestro
+react component
+
+en la api/test cree las carpetas que en algun momento 
+iba a utilizar ej: "controllers", "routes"
+
+cree mis controladores leer comentarios en:
+controllers/videogame.controllers.js
+
+
+

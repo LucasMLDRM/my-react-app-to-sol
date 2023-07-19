@@ -1,0 +1,16 @@
+GET https://example.com/comments/1 HTTP/1.1
+
+###
+
+GET https://example.com/topics/1 HTTP/1.1
+
+###
+
+POST http://localhost:3001/videogame HTTP/1.1
+content-type: application/json
+
+{
+    "name": "lhol",
+    "rating": "4.3",
+    "background_image": "https://localhost:3001/videogamess"
+}
